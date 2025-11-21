@@ -1,6 +1,17 @@
 import streamlit as st
 import math
 
+st.markdown("""
+<style>
+h1 {
+    color: #2b6cb0;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+</style>
+""", unsafe_allow_html=True)
+
 def rectangle_properties(length, width):
     perimeter = 2 * (length + width)
     area = length * width
