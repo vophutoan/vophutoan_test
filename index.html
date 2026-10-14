@@ -15,7 +15,7 @@
 </head>
 <body class="bg-gray-50 pb-24">
 
-    <!-- Header / Hero Section (Giữ nguyên) -->
+    <!-- Header / Hero Section -->
     <header class="relative bg-green-700 text-white overflow-hidden">
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=2000&auto=format&fit=crop" alt="Vườn Xoài" class="w-full h-full object-cover opacity-80" />
@@ -49,18 +49,11 @@
         const today = new Date();
         document.getElementById('currentDate').innerText = today.toLocaleDateString('vi-VN');
 
-        // BẠN HÃY DÁN LINK CSV TỪ GOOGLE SHEETS CỦA BẠN VÀO ĐÂY
+        // Link CSV từ Google Sheets của bạn
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-s0Z1MfUlXr1a7GpROehes2sIAjcJ3fdXrzJXLN2bsDXBx46g5b7EC5m60OCrCDEcFlWzBdAIX47_/pub?output=csv'; 
 
         // Hàm đọc và hiển thị dữ liệu
         function loadProducts() {
-            // Nếu bạn chưa thay link, hiển thị dữ liệu mẫu để bạn hình dung
-            if (CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-s0Z1MfUlXr1a7GpROehes2sIAjcJ3fdXrzJXLN2bsDXBx46g5b7EC5m60OCrCDEcFlWzBdAIX47_/pub?output=csv') {
-                document.getElementById('loadingStatus').innerText = "Vui lòng cập nhật link Google Sheets trong code";
-                document.getElementById('loadingStatus').classList.replace('text-blue-600', 'text-red-500');
-                return;
-            }
-
             Papa.parse(CSV_URL, {
                 download: true,
                 header: true,
@@ -103,7 +96,7 @@
 
         function orderItem(itemName) {
             // Chuyển hướng người nông dân mở thẳng Zalo của bạn với tin nhắn soạn sẵn
-            const sdtZalo = "0900000000"; // THAY SỐ ĐIỆN THOẠI ZALO CỦA BẠN VÀO ĐÂY
+            const sdtZalo = "0900000000"; // HÃY THAY SỐ ĐIỆN THOẠI ZALO CỦA BẠN VÀO ĐÂY NHÉ
             const message = encodeURIComponent(`Chào Đại lý Phú Toàn, tôi muốn hỏi mua loại: ${itemName}`);
             window.open(`https://zalo.me/${sdtZalo}?text=${message}`, '_blank');
         }
