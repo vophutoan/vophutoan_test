@@ -50,12 +50,12 @@
         document.getElementById('currentDate').innerText = today.toLocaleDateString('vi-VN');
 
         // BẠN HÃY DÁN LINK CSV TỪ GOOGLE SHEETS CỦA BẠN VÀO ĐÂY
-        const CSV_URL = 'LINK_GOOGLE_SHEET_CSV_CUA_BAN'; 
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-s0Z1MfUlXr1a7GpROehes2sIAjcJ3fdXrzJXLN2bsDXBx46g5b7EC5m60OCrCDEcFlWzBdAIX47_/pub?output=csv'; 
 
         // Hàm đọc và hiển thị dữ liệu
         function loadProducts() {
             // Nếu bạn chưa thay link, hiển thị dữ liệu mẫu để bạn hình dung
-            if (CSV_URL === 'LINK_GOOGLE_SHEET_CSV_CUA_BAN') {
+            if (CSV_URL === 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR-s0Z1MfUlXr1a7GpROehes2sIAjcJ3fdXrzJXLN2bsDXBx46g5b7EC5m60OCrCDEcFlWzBdAIX47_/pub?output=csv') {
                 document.getElementById('loadingStatus').innerText = "Vui lòng cập nhật link Google Sheets trong code";
                 document.getElementById('loadingStatus').classList.replace('text-blue-600', 'text-red-500');
                 return;
