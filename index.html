@@ -192,7 +192,6 @@
             </div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Đang xử lý</h3>
             <p class="text-gray-600 mb-6" id="msgText">Đang chuyển hướng sang Zalo để đặt mua...</p>
-            <!-- Xóa nút Đóng vì hệ thống tự động chuyển luôn -->
         </div>
     </div>
 
@@ -221,7 +220,7 @@
                 complete: function(results) {
                     const products = results.data;
                     const grid = document.getElementById('productGrid');
-                    grid.innerHTML = ''; // Xóa trạng thái tải
+                    grid.innerHTML = ''; 
                     
                     const statusText = document.getElementById('loadingStatus');
                     statusText.innerHTML = '<i class="fa-solid fa-check-circle mr-1"></i> Đã cập nhật giá mới nhất';
@@ -232,20 +231,22 @@
                     let colorIndex = 0;
 
                     products.forEach(item => {
-                        // Bỏ qua các dòng trống
                         if(!item['Tên sản phẩm']) return;
 
                         const isOutOfStock = item['Trạng thái'] && item['Trạng thái'].toLowerCase().includes('hết');
                         const bgColor = bgColors[colorIndex % bgColors.length];
                         colorIndex++;
 
-                        // Tạo chữ hiển thị thay cho ảnh (Viết tắt an toàn)
+                        // Xử lý hình ảnh (Nếu có link ở cột 'Hình ảnh' thì dùng, không thì dùng ảnh mặc định)
                         const shortName = encodeURIComponent(item['Tên sản phẩm'].split(' ').slice(0,3).join(' '));
+                        const imageUrl = (item['Hình ảnh'] && item['Hình ảnh'].trim() !== '') 
+                            ? item['Hình ảnh'] 
+                            : `https://placehold.co/400x300/f3f4f6/374151?text=${shortName}`;
                         
                         const cardHTML = `
                             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col">
                                 <div class="relative h-48 ${bgColor} flex items-center justify-center p-4">
-                                    <img src="https://placehold.co/400x300/f3f4f6/374151?text=${shortName}" alt="${item['Tên sản phẩm']}" class="max-h-full object-contain rounded-lg">
+                                    <img src="${imageUrl}" alt="${item['Tên sản phẩm']}" class="max-h-full object-contain rounded-lg">
                                     ${isOutOfStock ? '<div class="absolute top-3 right-3 bg-gray-500 text-white text-xs font-bold px-2 py-1 rounded shadow">Hết Hàng</div>' : ''}
                                 </div>
                                 <div class="p-5 flex-grow flex flex-col">
@@ -270,12 +271,11 @@
             });
         }
 
-        // 3. Hàm đặt hàng nâng cấp kết hợp Modal và Zalo Redirect
+        // 3. Hàm đặt hàng
         function orderItem(itemName) {
             const modal = document.getElementById('msgModal');
             const msgText = document.getElementById('msgText');
             
-            // Hiện Modal
             msgText.innerHTML = `Quý khách đang chọn mua <b>${itemName}</b>. Hệ thống đang chuyển sang Zalo để chốt đơn...`;
             modal.classList.remove('hidden');
             
@@ -284,24 +284,10 @@
                 document.getElementById('msgModalContent').classList.add('scale-100');
             }, 10);
             
-            // Tự động nhảy sang Zalo sau 1.5 giây
             setTimeout(() => {
                 const sdtZalo = "0900000000"; // HÃY THAY SỐ ZALO CỦA BẠN VÀO ĐÂY
                 const message = encodeURIComponent(`Chào Đại lý Phú Toàn, tôi muốn hỏi mua loại: ${itemName}`);
                 window.open(`https://zalo.me/${sdtZalo}?text=${message}`, '_blank');
                 
-                // Tắt Modal sau khi mở Zalo
                 document.getElementById('msgModalContent').classList.remove('scale-100');
-                document.getElementById('msgModalContent').classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 200);
-
-            }, 1500);
-        }
-
-        // Khởi động load sản phẩm
-        window.onload = loadProducts;
-    </script>
-</body>
-</html>
+                document.
