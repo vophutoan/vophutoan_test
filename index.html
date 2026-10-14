@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại lý Bao Bì Phú Toàn - Bảng Giá Bao Bọc Xoài</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        agro: {
+                            light: '#e8f5e9',
+                            DEFAULT: '#2e7d32',
+                            dark: '#1b5e20',
+                        },
+                        mango: {
+                            light: '#fff8e1',
+                            DEFAULT: '#ffb300',
+                            dark: '#ff8f00',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pulse Animation for Call Button */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(46, 125, 50, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+        }
+        .btn-call-pulse {
+            animation: pulse-ring 2s infinite;
+        }
+        
+        /* Zalo color */
+        .bg-zalo { background-color: #0068FF; }
+        .bg-zalo:hover { background-color: #0054cc; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <header class="bg-agro text-white sticky top-0 z-40 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-mango text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold tracking-tight">BAO BÌ PHÚ TOÀN</h1>
+            </div>
+            <a href="tel:0909123456" class="hidden sm:flex items-center gap-2 bg-white text-agro px-4 py-2 rounded-full font-bold hover:bg-mango-light transition-colors">
+                <i class="fa-solid fa-phone-volume"></i> 0909.123.456
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-agro-light to-white pt-8 pb-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-agro-dark mb-4">
+                BẢNG GIÁ BAO BỌC XOÀI
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 mb-6 max-w-2xl mx-auto">
+                Chuyên cung cấp sỉ & lẻ các loại bao bọc trái cây, bao xoài Đài Loan, Cát Chu chất lượng cao. Giá tốt nhất khu vực Cao Lãnh, Đồng Tháp.
+            </p>
+            
+            <!-- Date Indicator -->
+            <div class="inline-flex items-center gap-2 bg-yellow-100 border border-yellow-300 text-yellow-800 px-5 py-2.5 rounded-xl font-medium text-lg shadow-sm">
+                <i class="fa-regular fa-calendar-check text-mango-dark"></i>
+                <span>Cập nhật ngày: <b id="current-date">--/--/----</b></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+        
+        <div class="flex items-center justify-between mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 border-l-4 border-mango pl-3">Sản Phẩm Khuyến Nghị</h3>
+            <span class="text-sm text-gray-500 italic">* Giá có thể thay đổi theo số lượng</span>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            
+            <!-- Product Card 1 -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="relative h-48 bg-yellow-50 flex items-center justify-center p-4">
+                    <img src="https://placehold.co/400x300/fef08a/854d0e?text=Bao+Xo%C3%A0i+V%C3%A0ng" alt="Bao xoài vàng Đài Loan" class="max-h-full object-contain rounded-lg">
+                    <div class="absolute top-3 right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded shadow">Bán Chạy</div>
+                </div>
+                <div class="p-5">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Bao Xoài Vàng (Đài Loan)</h4>
+                    <ul class="text-gray-600 text-sm mb-4 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-ruler-combined text-gray-400 w-4"></i> Kích thước: <b>20 x 30 cm</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-layer-group text-gray-400 w-4"></i> Chất liệu: <b>Giấy 2 lớp chống côn trùng</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-box text-gray-400 w-4"></i> Đóng gói: <b>1000 cái/thùng</b></li>
+                    </ul>
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-center mb-4">
+                        <p class="text-sm text-gray-500 mb-1">Giá bán lẻ (tham khảo)</p>
+                        <p class="text-2xl font-black text-red-600">850đ <span class="text-base font-normal text-gray-500">/ cái</span></p>
+                    </div>
+                    <button onclick="contactMua('Bao Xoài Vàng Đài Loan')" class="w-full bg-agro hover:bg-agro-dark text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Đặt Hàng Ngay
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="relative h-48 bg-gray-50 flex items-center justify-center p-4">
+                    <img src="https://placehold.co/400x300/f3f4f6/374151?text=Bao+Xo%C3%A0i+Tr%E1%BA%AFng" alt="Bao xoài trắng Cát Chu" class="max-h-full object-contain rounded-lg">
+                </div>
+                <div class="p-5">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Bao Xoài Trắng (Cát Chu)</h4>
+                    <ul class="text-gray-600 text-sm mb-4 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-ruler-combined text-gray-400 w-4"></i> Kích thước: <b>22 x 32 cm</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-layer-group text-gray-400 w-4"></i> Chất liệu: <b>Vải không dệt</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-box text-gray-400 w-4"></i> Đóng gói: <b>500 cái/bó</b></li>
+                    </ul>
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-center mb-4">
+                        <p class="text-sm text-gray-500 mb-1">Giá bán lẻ (tham khảo)</p>
+                        <p class="text-2xl font-black text-red-600">700đ <span class="text-base font-normal text-gray-500">/ cái</span></p>
+                    </div>
+                    <button onclick="contactMua('Bao Xoài Trắng Cát Chu')" class="w-full bg-agro hover:bg-agro-dark text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Đặt Hàng Ngay
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="relative h-48 bg-blue-50 flex items-center justify-center p-4">
+                    <img src="https://placehold.co/400x300/dbeafe/1e3a8a?text=L%C6%B0%E1%BB%9Bi+C%C6%B0%E1%BB%9Bc" alt="Túi lưới cước" class="max-h-full object-contain rounded-lg">
+                </div>
+                <div class="p-5">
+                    <h4 class="text-xl font-bold text-gray-900 mb-2">Bao Lưới Cước Đa Năng</h4>
+                    <ul class="text-gray-600 text-sm mb-4 space-y-2">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-ruler-combined text-gray-400 w-4"></i> Kích thước: <b>15 x 25 cm</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-layer-group text-gray-400 w-4"></i> Chất liệu: <b>Nhựa PE dai, thoáng khí</b></li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-box text-gray-400 w-4"></i> Đóng gói: <b>1kg/bịch (Khoảng 350 cái)</b></li>
+                    </ul>
+                    <div class="bg-gray-50 p-3 rounded-lg border border-gray-200 text-center mb-4">
+                        <p class="text-sm text-gray-500 mb-1">Giá bán lẻ (tham khảo)</p>
+                        <p class="text-2xl font-black text-red-600">65.000đ <span class="text-base font-normal text-gray-500">/ kg</span></p>
+                    </div>
+                    <button onclick="contactMua('Bao Lưới Cước')" class="w-full bg-agro hover:bg-agro-dark text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-lg">
+                        <i class="fa-brands fa-whatsapp"></i> Đặt Hàng Ngay
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Info Banner -->
+        <div class="mt-10 bg-mango-light border border-mango rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-mango text-white rounded-full flex items-center justify-center text-2xl flex-shrink-0">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900">Giao Hàng Tận Vườn</h4>
+                    <p class="text-gray-700">Miễn phí vận chuyển bán kính 10km quanh TP. Cao Lãnh khi mua từ 5 thùng.</p>
+                </div>
+            </div>
+            <a href="tel:0909123456" class="bg-white border-2 border-mango text-mango-dark font-bold px-6 py-3 rounded-xl whitespace-nowrap hover:bg-mango-light transition">
+                Gọi Tự Vấn: 0909.123.456
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-agro-dark text-gray-300 py-8 border-t-4 border-mango">
+        <div class="container mx-auto px-4 text-center md:text-left grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div>
+                <h2 class="text-2xl font-bold text-white mb-2 flex items-center justify-center md:justify-start gap-2">
+                    <i class="fa-solid fa-leaf text-mango"></i> ĐẠI LÝ PHÚ TOÀN
+                </h2>
+                <p class="mb-2"><i class="fa-solid fa-location-dot w-5 text-mango"></i> Địa chỉ: Chợ đầu mối trái cây, TP. Cao Lãnh, Đồng Tháp</p>
+                <p><i class="fa-solid fa-clock w-5 text-mango"></i> Giờ mở cửa: 05:00 Sáng - 18:00 Chiều</p>
+            </div>
+            <div class="md:text-right">
+                <p class="text-sm mt-4 md:mt-0 opacity-70">
+                    © 2026 Bao Bì Phú Toàn. Thiết kế dành riêng cho bà con nông dân.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+        <!-- Zalo Button -->
+        <a href="https://zalo.me/0909123456" target="_blank" class="w-14 h-14 bg-zalo rounded-full flex items-center justify-center text-white text-3xl shadow-lg hover:scale-110 transition-transform" title="Chat Zalo">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor">
+                <path d="M21.547 5.715c-1.4-2.203-4.22-3.905-7.798-3.905-5.918 0-10.718 3.791-10.718 8.468 0 2.215 1.155 4.227 3.064 5.746.401.319.646.852.548 1.353-.207 1.056-.554 2.457-.759 3.093-.199.62.247.781.714.496.593-.362 2.822-1.745 3.963-2.528.375-.257.854-.316 1.282-.182 1.487.466 3.167.733 4.908.733 5.918 0 10.718-3.791 10.718-8.468 0-2.091-.84-3.992-2.317-5.501-.295-.302-.276-.788.041-1.077l.254-.23z"/>
+            </svg>
+        </a>
+        
+        <!-- Phone Button -->
+        <a href="tel:0909123456" class="w-14 h-14 bg-agro rounded-full flex items-center justify-center text-white text-2xl shadow-xl hover:scale-110 transition-transform relative btn-call-pulse" title="Gọi Ngay">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Message Box (Modal alternative to alert) -->
+    <div id="msgModal" class="fixed inset-0 bg-black bg-opacity-50 z-[100] hidden flex items-center justify-center px-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 text-center transform scale-95 transition-transform duration-200" id="msgModalContent">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Xác nhận</h3>
+            <p class="text-gray-600 mb-6" id="msgText">Đang chuyển hướng sang Zalo/Cuộc gọi để đặt mua...</p>
+            <button onclick="closeModal()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 rounded-xl transition-colors">
+                Đóng
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Set Current Date dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateEl = document.getElementById('current-date');
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            const year = today.getFullYear();
+            dateEl.textContent = `${day}/${month}/${year}`;
+        });
+
+        // Custom Modal Function (Replaces alert)
+        function contactMua(productName) {
+            const modal = document.getElementById('msgModal');
+            const msgText = document.getElementById('msgText');
+            
+            msgText.innerHTML = `Quý khách đang chọn mua <b>${productName}</b>. Vui lòng liên hệ qua số điện thoại hoặc Zalo để chốt số lượng và nhận giá sỉ!`;
+            
+            modal.classList.remove('hidden');
+            // Slight delay for animation effect
+            setTimeout(() => {
+                document.getElementById('msgModalContent').classList.remove('scale-95');
+                document.getElementById('msgModalContent').classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('msgModal');
+            document.getElementById('msgModalContent').classList.remove('scale-100');
+            document.getElementById('msgModalContent').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+    </script>
+</body>
+</html>
