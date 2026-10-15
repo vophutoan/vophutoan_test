@@ -1,0 +1,6 @@
+name = "test"
+compatibility_date = "2024-02-15"
+
+[[kv_namespaces]]
+binding = "SITE_DATA"
+id = "56e122f175d14b72b384005be52d1ea1"
